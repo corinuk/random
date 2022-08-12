@@ -4,7 +4,6 @@ import { useNavigate, useParams } from "react-router-dom";
 function Group() {
   const navigate = useNavigate();
   const { group_id } = useParams();
-  const a = "a";
 
   const onClickJoinBtn = () => {
     const join = window.confirm("For real?");

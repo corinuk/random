@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, useParams } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Home";
 import Group from "./Group";
 import CreateGroup from "./CreateGroup";
