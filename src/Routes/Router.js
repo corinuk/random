@@ -5,6 +5,7 @@ import CreateGroup from "./CreateGroup";
 import Mypage from "./Mypage";
 import Setting from "./Setting";
 import CompleteCreateGroup from "./CompleteCreateGroup";
+import Chatting from "./Chatting";
 
 function Router() {
   return (
@@ -19,6 +20,7 @@ function Router() {
         />
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/setting" element={<Setting />} />
+        <Route path="/chatting" element={<Chatting />} />
       </Routes>
     </BrowserRouter>
   );

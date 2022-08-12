@@ -6,8 +6,8 @@ function Groups() {
 
   return (
     <div>
-      {group_ids.map((group_id) => (
-        <div>
+      {group_ids.map((group_id, idx) => (
+        <div key={idx}>
           <Link to={`/group_${group_id}`}>모임{group_id}</Link>
         </div>
       ))}
