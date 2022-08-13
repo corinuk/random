@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import CreateGroup from "./CreateGroup";
 
 function Mypage() {
   const date = new Date();
@@ -72,12 +73,17 @@ function Mypage() {
           </div>
         ) : null}
         <div>
-          <h3>예약한 모임</h3>
+          {itemInStorage ? <h3>예약한 모임</h3> : null}
           {itemInStorage
-            ? Object.keys(itemInStorage).map((id, idx) => (
+            ? Object.keys(itemInStorage).map((createdTime, idx) => (
                 <div key={idx}>
                   <div>
-                    <h4>방 제목{id}</h4>
+                    <h4>방 제목</h4>
+                    <div>
+                      {createdTime}
+                      <br />
+                      {itemInStorage[createdTime]}
+                    </div>
                     <div>취미 및 관심사</div>
                     <div>장소</div>
                     <div>시간</div>
