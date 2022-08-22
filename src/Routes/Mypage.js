@@ -1,39 +1,48 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import CreateGroup from "./CreateGroup";
 
 function Mypage() {
-  const date = new Date();
-  const currentTime = date.getTime();
   const myStorage = window.localStorage;
-  const itemInStorage = JSON.parse(localStorage.getItem("JoinedGroup"));
+  const itemsInStorage = JSON.parse(localStorage.getItem("JoinedGroup"));
+  const allGroupListsInStorage = JSON.parse(localStorage.getItem("groupsList"));
 
   const navigate = useNavigate();
-  const [selfMadeGroup, setSelfMadeGroup] = useState({});
-  const [joinedGroup, setJoinedGroup] = useState(itemInStorage);
-  const {
-    state: { group_id },
+  const [joinedGroup, setJoinedGroup] = useState(itemsInStorage);
+  let {
+    state: { groupId, title, category, time, place, current, max },
   } = useLocation();
 
   const onClickChatting = () => {
     window.location.href = "/chatting";
   };
-  const onClickDel = () => {
+  const onClickDel = (e) => {
     const del = window.confirm("for real?");
+
     if (del) {
-      console.log("yes");
-    } else {
-      console.log("no");
+      const selected =
+        e.target.parentNode.childNodes[0].children[1].childNodes[0].data;
+      const newJoinedGroup = { ...joinedGroup };
+      delete newJoinedGroup[selected];
+      setJoinedGroup(newJoinedGroup);
+      window.location.reload();
     }
   };
   const addJoinedGroupOnMypage = () => {
-    if (group_id != 0) {
-      setJoinedGroup((current) => {
-        let newJoinedGroup = { ...current };
-        newJoinedGroup[currentTime] = group_id;
+    if (groupId != 0) {
+      setJoinedGroup((prev) => {
+        let newJoinedGroup = { ...prev };
+        newJoinedGroup[groupId] = {
+          title,
+          category,
+          time,
+          place,
+          current: current + 1,
+          max,
+        };
         return newJoinedGroup;
       });
+      allGroupListsInStorage[groupId].current += 1;
+      myStorage.setItem("groupsList", JSON.stringify(allGroupListsInStorage));
     }
   };
   const setJoinedGroupOnLocalStorage = () => {
@@ -42,7 +51,7 @@ function Mypage() {
 
   useEffect(() => {
     addJoinedGroupOnMypage();
-  }, [group_id]);
+  }, [groupId]);
   useEffect(() => {
     setJoinedGroupOnLocalStorage();
   }, [joinedGroup]);
@@ -57,40 +66,29 @@ function Mypage() {
         뒤로가기
       </button>
       <div>
-        {Object.keys(selfMadeGroup).length !== 0 ? (
-          <div>
-            <h3>내가 만든 모임</h3>
-            <div>
-              <h4>방 제목</h4>
-              <div>취미 및 관심사</div>
-              <div>장소</div>
-              <div>시간</div>
-              <div>현재인원 / 최대인원</div>
-            </div>
-            <button onClick={onClickChatting}>채팅방</button>
-            <button onClick={onClickDel}>모임 나가기</button>
-            <hr></hr>
-          </div>
-        ) : null}
         <div>
-          {itemInStorage ? <h3>예약한 모임</h3> : null}
-          {itemInStorage
-            ? Object.keys(itemInStorage).map((createdTime, idx) => (
+          {Object.keys(itemsInStorage).length === 0 ? (
+            <h4>참여 중인 모임이 없습니다.</h4>
+          ) : null}
+          {Object.keys(itemsInStorage).length !== 0 ? (
+            <h3>참여중인 모임</h3>
+          ) : null}
+          {itemsInStorage
+            ? Object.keys(itemsInStorage).map((createdTime, idx) => (
                 <div key={idx}>
                   <div>
-                    <h4>방 제목</h4>
+                    <h4>{itemsInStorage[createdTime].title}</h4>
+                    <div hidden>{createdTime}</div>
+                    <div>{itemsInStorage[createdTime].category}</div>
+                    <div>{itemsInStorage[createdTime].time}</div>
+                    <div>{itemsInStorage[createdTime].place}</div>
                     <div>
-                      {createdTime}
-                      <br />
-                      {itemInStorage[createdTime]}
+                      {itemsInStorage[createdTime].current} /{" "}
+                      {itemsInStorage[createdTime].max}
                     </div>
-                    <div>취미 및 관심사</div>
-                    <div>장소</div>
-                    <div>시간</div>
-                    <div>현재인원 / 최대인원</div>
                   </div>
                   <button onClick={onClickChatting}>채팅방</button>
-                  <button onClick={onClickDel}>모임 나가기</button>
+                  <button onClick={(e) => onClickDel(e)}>모임 나가기</button>
                 </div>
               ))
             : null}

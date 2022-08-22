@@ -1,9 +1,12 @@
 import React from "react";
+import styles from "./LogInBtn.module.css";
 
 function LoginBtn({ onClick }) {
   return (
-    <div>
-      <button onClick={onClick}>Kakao Log In</button>
+    <div className={styles.login_btn_div}>
+      <button className={styles.login_btn} onClick={onClick}>
+        Kakao Log In
+      </button>
     </div>
   );
 }

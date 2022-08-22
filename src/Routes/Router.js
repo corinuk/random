@@ -12,7 +12,7 @@ function Router() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/group_:group_id" element={<Group />} />
+        <Route path="/group_:groupId" element={<Group />} />
         <Route path="/create_group" element={<CreateGroup />} />
         <Route
           path="/create_group/complete"

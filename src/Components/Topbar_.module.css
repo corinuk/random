@@ -1,0 +1,33 @@
+html {
+  font-size: 14px;
+}
+.create_group_top_bar {
+  height: 4rem;
+  background-color: white;
+  border-bottom: black solid 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.create_group_top_bar_title {
+  color: black;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.back_btn_div {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.back_btn {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  padding: 0 1rem 0 1rem;
+  color: black;
+  cursor: pointer;
+}

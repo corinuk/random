@@ -1,0 +1,16 @@
+html {
+  font-size: 14px;
+}
+.login_btn_div {
+  background-color: yellow;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login_btn {
+  font-size: 1rem;
+  background: none;
+  border: none;
+  color: black;
+}

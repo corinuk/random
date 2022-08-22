@@ -1,0 +1,18 @@
+html {
+  font-size: 14px;
+  background-color: #f3f6f8;
+}
+.top_bar {
+  background-color: #6041f8;
+  color: white;
+  width: 100vw;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+}

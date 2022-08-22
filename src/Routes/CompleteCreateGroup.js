@@ -1,11 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 function CompleteCreateGroup() {
+  const onClick = () => {
+    window.location.href = "/";
+  };
+
   return (
     <div>
       <div>모임이 성공적으로 만들어졌습니다.</div>
-      <Link to={"/"}>확인</Link>
+      <button onClick={onClick}>확인</button>
     </div>
   );
 }
