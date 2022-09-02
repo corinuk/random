@@ -16,3 +16,6 @@ html {
   border: #6041f8 solid 1rem;
   border-radius: 0.2rem;
 }
+.submit:active {
+  border: none;
+}

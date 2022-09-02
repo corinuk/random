@@ -24,7 +24,6 @@ function Group() {
       }
     } else if (Object.keys(itemsInStorage).includes(groupId)) {
       alert("이미 가입한 모임입니다.");
-      window.location.href = "/";
     }
   };
 
