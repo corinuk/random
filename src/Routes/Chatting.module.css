@@ -1,0 +1,24 @@
+.chatting_room {
+  height: 80vh;
+}
+.message_input_div {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+}
+.message_input {
+  resize: none;
+  width: 100vw;
+  height: 2rem;
+  margin: 0.3rem 0.7rem 0.3rem 0.3rem;
+  font-size: 1.2rem;
+}
+.send_btn {
+  font-size: 2rem;
+  color: #6041f8;
+  margin-right: 0.8rem;
+}

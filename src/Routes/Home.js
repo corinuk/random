@@ -15,11 +15,10 @@ function Home() {
   const navigate = useNavigate();
 
   const onClickCreateBtn = () => {
-    window.location.href = "/create_group";
+    navigate("/create_group");
   };
   const onClickMypageBtn = () => {
     navigate("/mypage", { state: { groupId } });
-    window.location.href = "/mypage";
   };
 
   if (!itemsInStorage) myStorage.setItem("JoinedGroup", JSON.stringify({}));

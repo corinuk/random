@@ -1,0 +1,15 @@
+.complete_div {
+  height: 100vh;
+}
+.complete_text_div {
+  display: flex;
+  justify-content: center;
+}
+.complete_text {
+  margin-top: 10rem;
+  margin-bottom: 8rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+/* .confirm_btn {
+} */

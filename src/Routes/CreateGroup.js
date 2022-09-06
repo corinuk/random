@@ -59,7 +59,7 @@ function CreateGroup() {
   return (
     <div>
       <Topbar_ title={"그룹 만들기"} />
-      <div>
+      <div className={styles.create_group}>
         <form onSubmit={onSubmit}>
           <div className={styles.title_div}>
             <span className={styles.title_span}>방 제목</span>

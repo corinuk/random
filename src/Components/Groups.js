@@ -1,11 +1,14 @@
 import React from "react";
 import styles from "./Groups.module.css";
+import { useNavigate } from "react-router-dom";
 
 function Groups() {
+  const navigate = useNavigate();
+
   const allGroupListsInStorage = JSON.parse(localStorage.getItem("groupsList"));
 
   const onClickGroupAtHome = (groupId) => {
-    window.location.href = `/group_${groupId}`;
+    navigate(`/group_${groupId}`);
   };
 
   return (

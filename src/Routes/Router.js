@@ -15,6 +15,7 @@ function Router() {
         <Route path="/group_:groupId" element={<Group />} />
         <Route path="/create_group" element={<CreateGroup />} />
         <Route
+          // path="/"
           path="/create_group/complete"
           element={<CompleteCreateGroup />}
         />

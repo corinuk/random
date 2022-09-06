@@ -13,7 +13,7 @@ function Mypage() {
   } = useLocation();
 
   const onClickChatting = () => {
-    window.location.href = "/chatting";
+    navigate("/chatting");
   };
   const onClickDel = (e) => {
     const del = window.confirm("for real?");
