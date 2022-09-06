@@ -16,9 +16,6 @@ function CompleteCreateGroup() {
           <div className={styles.complete_text}>모임이 만들어졌습니다</div>
         </div>
         <SubmitBtn value={"확인"} onClick={onClick} />
-        {/* <button className={styles.confirm_btn} onClick={onClick}>
-          확인
-        </button> */}
       </div>
     </div>
   );
