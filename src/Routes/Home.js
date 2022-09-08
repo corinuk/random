@@ -38,7 +38,7 @@ function Home() {
       category: "코딩2",
       time: "몇시2",
       place: "어디2",
-      current: 1,
+      current: 3,
       max: 4,
     };
     allGroupListsInStorage[1660484658335] = {
@@ -66,11 +66,6 @@ function Home() {
           <GoPlus />
         </button>
       </div>
-      {/* setting page 있는 거 잊지말자...! */}
-      {/* setting page 있는 거 잊지말자...! */}
-      {/* setting page 있는 거 잊지말자...! */}
-      {/* setting page 있는 거 잊지말자...! */}
-      {/* setting page 있는 거 잊지말자...! */}
       <Groups />
     </div>
   );

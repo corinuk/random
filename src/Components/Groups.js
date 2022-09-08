@@ -14,14 +14,23 @@ function Groups() {
   return (
     <div>
       {Object.keys(allGroupListsInStorage).map((groupId, idx) => (
-        <div
-          onClick={() => onClickGroupAtHome(groupId)}
-          className={styles.title_div}
-          key={idx}
-        >
-          <div className={styles.title}>
-            {allGroupListsInStorage[groupId].title}
-          </div>
+        <div key={idx}>
+          {allGroupListsInStorage[groupId].current ==
+          allGroupListsInStorage[groupId].max ? null : (
+            <div
+              onClick={() => onClickGroupAtHome(groupId)}
+              className={styles.title_div}
+            >
+              <div>
+                <div className={styles.title}>
+                  {allGroupListsInStorage[groupId].title}
+                </div>
+                <div className={styles.category}>
+                  {allGroupListsInStorage[groupId].category}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       ))}
     </div>

@@ -2,10 +2,13 @@ import React from "react";
 import styles from "./CompleteCreateGroup.module.css";
 import Topbar_ from "../Components/Topbar_";
 import SubmitBtn from "../Components/SubmitBtn";
+import { useNavigate } from "react-router-dom";
 
 function CompleteCreateGroup() {
+  const navigate = useNavigate();
+
   const onClick = () => {
-    window.location.href = "/";
+    navigate("/");
   };
 
   return (
