@@ -27,6 +27,10 @@ function Mypage() {
       const newJoinedGroup = { ...joinedGroup };
       delete newJoinedGroup[selected];
       setJoinedGroup(newJoinedGroup);
+      if (allGroupListsInStorage[groupId].current == 0) {
+        delete allGroupListsInStorage[groupId];
+        myStorage.setItem("groupsList", JSON.stringify(allGroupListsInStorage));
+      }
       window.location.reload();
     }
   };
