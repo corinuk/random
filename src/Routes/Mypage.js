@@ -19,6 +19,9 @@ function Mypage() {
     const del = window.confirm("for real?");
 
     if (del) {
+      const groupId = e.target.parentNode.children[0].children[1].innerHTML;
+      allGroupListsInStorage[groupId].current -= 1;
+      myStorage.setItem("groupsList", JSON.stringify(allGroupListsInStorage));
       const selected =
         e.target.parentNode.childNodes[0].children[1].childNodes[0].data;
       const newJoinedGroup = { ...joinedGroup };
